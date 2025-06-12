@@ -42,21 +42,21 @@ function updateMood() {
 }
 
 function feed() {
-  sounds.feed.play().catch(() => {});
+  sounds.feed.play();
   hunger = Math.min(hunger + 2, 10);
   happiness = Math.min(happiness + 1, 10);
   updateStats();
 }
 
 function play() {
-  sounds.play.play().catch(() => {});
+  sounds.play.play();
   happiness = Math.min(happiness + 2, 10);
   energy = Math.max(energy - 1, 0);
   updateStats();
 }
 
 function sleep() {
-  sounds.sleep.play().catch(() => {});
+  sounds.sleep.play();
   energy = Math.min(energy + 3, 10);
   hunger = Math.max(hunger - 1, 0);
   happiness = Math.min(happiness + 1, 10); // ✅ small boost for resting
