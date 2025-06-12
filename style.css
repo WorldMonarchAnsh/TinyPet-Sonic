@@ -111,4 +111,17 @@ body.night .message-box {
   .container {
     width: 90%;
   }
+  #nightBtn {
+  display: block;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 0 auto 10px auto;
+  transition: transform 0.2s;
+}
+
+#nightBtn:hover {
+  transform: scale(1.2);
+}
 }
