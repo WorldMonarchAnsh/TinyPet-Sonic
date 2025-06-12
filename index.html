@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TinyPet: Sonic Edition</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <button onclick="toggleNightMode()" id="nightBtn" style="float: right;">🌙 Night Mode</button>
+    <h1>🐾 TinyPet: Sonic Edition 🦔</h1>
+    
+    <p id="rings">⭕ Rings: <span id="ringCount">0</span></p>
+
+    <div id="pet">
+      <img src="./images/sonic-awake.png" alt="Sonic Pet" id="pet-img">
+      <p id="mood">😐</p>
+    </div>
+
+    <div class="stats">
+      <p>Hunger: <span id="hunger">5</span></p>
+      <p>Happiness: <span id="happiness">5</span></p>
+      <p>Energy: <span id="energy">5</span></p>
+    </div>
+
+    <div class="buttons">
+      <button onclick="feed()">🍎 Feed</button>
+      <button onclick="play()">🎾 Play</button>
+      <button onclick="sleep()">💤 Sleep</button>
+      <button onclick="resetGame()" style="margin-top: 10px;">🔄 Reset Sonic</button>
+    </div>
+
+    <p id="message" class="message-box">💬 Let's gooo!</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
