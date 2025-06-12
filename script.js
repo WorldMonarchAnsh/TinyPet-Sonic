@@ -7,7 +7,9 @@ const sounds = {
   feed: new Audio('./sounds/Feeding.mp3'),
   play: new Audio('./sounds/Jump.mp3'),
   sleep: new Audio('./sounds/Sleeping.mp3'),
-  ring: new Audio('./sounds/Ring Sound.mp3')
+  ring: new Audio('./sounds/Ring Sound.mp3'),
+  special: new Audio('./sounds/100 Rings Jingle.mp3'), // 🎉 NEW
+  sad: new Audio('./sounds/Sad.mp3') // Make sure this is defined
 };
 
 function updateStats() {
@@ -59,7 +61,7 @@ function sleep() {
   sounds.sleep.play();
   energy = Math.min(energy + 3, 10);
   hunger = Math.max(hunger - 1, 0);
-  happiness = Math.min(happiness + 1, 10); // ✅ small boost for resting
+  happiness = Math.min(happiness + 1, 10);
   document.getElementById("pet-img").src = "./images/sonic-sleep.png";
   setTimeout(() => {
     document.getElementById("pet-img").src = "./images/sonic-awake.png";
@@ -80,13 +82,19 @@ function addRing() {
   sounds.ring.play();
   localStorage.setItem("rings", rings);
   document.getElementById('ringCount').textContent = rings;
+
+  if (rings % 100 === 0) {
+    setTimeout(() => {
+      sounds.special.play().catch(() => {});
+      alert("🎉 100 Rings! Sonic leveled up!");
+    }, 300); // small delay after ring sound
+  }
 }
 
 function toggleNightMode() {
   document.body.classList.toggle("night");
 }
 
-// 🕒 Slow stat decay every 60 seconds
 function decayStats() {
   hunger = Math.max(hunger - 1, 0);
   happiness = Math.max(happiness - 1, 0);
@@ -94,7 +102,6 @@ function decayStats() {
   updateStats();
 }
 
-// 🧠 Load from local storage
 window.onload = () => {
   hunger = parseInt(localStorage.getItem("hunger")) || 5;
   happiness = parseInt(localStorage.getItem("happiness")) || 5;
@@ -103,5 +110,4 @@ window.onload = () => {
   updateStats();
 };
 
-// ✅ Call stat decay loop
-setInterval(decayStats, 60000); // Every 1 minute
+setInterval(decayStats, 60000);
