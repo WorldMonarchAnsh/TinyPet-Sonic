@@ -13,7 +13,7 @@ Feed, play, and let Sonic sleep — all while collecting rings!
 - Auto-save & Reset
 
 ## 🌐 Live Demo (once published)
-[https://WorldMonarchAnsh.github.io/TinyPet-Sonic/](#)
+[TinyPet Sonic](https://worldmonarchansh.github.io/TinyPet-Sonic/)](#)
 
 ---
 
