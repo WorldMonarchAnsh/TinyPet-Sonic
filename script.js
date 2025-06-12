@@ -4,11 +4,10 @@ let energy = 5;
 let rings = 0;
 
 const sounds = {
-  feed: new Audio('./sounds/feed.mp3'),
-  play: new Audio('./sounds/play.mp3'),
-  sleep: new Audio('./sounds/sleep.mp3'),
-  ring: new Audio('./sounds/ring.mp3'),
-  sad: new Audio('./sounds/sad.mp3')
+  feed: new Audio('./sounds/Feeding.mp3'),
+  play: new Audio('./sounds/Jump.mp3'),
+  sleep: new Audio('./sounds/Sleeping.mp3'),
+  ring: new Audio('./sounds/Ring Sound.mp3')
 };
 
 function updateStats() {
@@ -43,21 +42,21 @@ function updateMood() {
 }
 
 function feed() {
-  sounds.feed.play();
+  sounds.feed.play().catch(() => {});
   hunger = Math.min(hunger + 2, 10);
   happiness = Math.min(happiness + 1, 10);
   updateStats();
 }
 
 function play() {
-  sounds.play.play();
+  sounds.play.play().catch(() => {});
   happiness = Math.min(happiness + 2, 10);
   energy = Math.max(energy - 1, 0);
   updateStats();
 }
 
 function sleep() {
-  sounds.sleep.play();
+  sounds.sleep.play().catch(() => {});
   energy = Math.min(energy + 3, 10);
   hunger = Math.max(hunger - 1, 0);
   happiness = Math.min(happiness + 1, 10); // ✅ small boost for resting
